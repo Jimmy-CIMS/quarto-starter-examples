@@ -1,0 +1,53 @@
+---
+title: "A Small Reproducible Study"
+author: "Example Author"
+abstract: |
+  A fictional study demonstrating citations, footnotes, equations,
+  and table cross-references without executing code.
+bibliography: references.bib
+link-citations: true
+format:
+  html:
+    toc: true
+    number-sections: true
+---
+
+## Background
+
+Literate programming connects explanations with code [@knuth1984].
+@wickham2014 discusses how data structure can support analysis.
+These citations describe the motivation; the measurements below are fictional.^[The
+data is included only to demonstrate document features, not to support a scientific claim.]
+
+## Method {#sec-method}
+
+We compare three daily measurements before and after a hypothetical process change.
+The mean is defined in @eq-mean.
+
+$$
+\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i
+$$ {#eq-mean}
+
+## Results
+
+| Day | Before | After |
+|:----|-------:|------:|
+| 1 | 12 | 10 |
+| 2 | 15 | 12 |
+| 3 | 9 | 8 |
+
+: Fictional processing times in minutes. {#tbl-times}
+
+Using the method in @sec-method, @tbl-times gives mean times of 12 and 10
+minutes. This small fictional dataset is an illustration, not evidence of an effect.
+
+## Try it yourself
+
+Add an entry to `references.bib`, cite its key with `@key`, and render again.
+Quarto builds the reference list automatically. Keep the bibliography beside
+this document when copying the example.
+
+## References
+
+::: {#refs}
+:::

@@ -1,0 +1,67 @@
+---
+title: "A Report for One Department"
+engine: knitr
+params:
+  department: "Sales"
+  month: "Jan"
+format:
+  html:
+    toc: true
+execute:
+  echo: true
+---
+
+## Choose a report variant
+
+The YAML header defines defaults. Override them at render time, for example:
+
+```bash
+quarto render 08-parameterized-report.qmd -P department:Support -P month:Feb --output support-feb.html
+```
+
+Parameters select a subset of this fictional dataset. They do not change the
+page interactively; render again to create another variant.
+
+```{r}
+#| label: select-department
+records <- data.frame(
+  department = rep(c("Sales", "Support"), each = 3),
+  month = rep(c("Jan", "Feb", "Mar"), times = 2),
+  completed = c(120, 135, 128, 90, 105, 115),
+  target = c(110, 120, 130, 100, 100, 110)
+)
+
+if (!params$department %in% records$department) {
+  stop("Unknown department. Choose Sales or Support.")
+}
+if (!params$month %in% records$month) {
+  stop("Unknown month. Choose Jan, Feb, or Mar.")
+}
+selected <- subset(records,
+  department == params$department & month == params$month)
+```
+
+## Selected results
+
+Department: **`r params$department`**. Month: **`r params$month`**.
+
+```{r}
+#| label: tbl-selected
+#| tbl-cap: "Selected fictional results"
+knitr::kable(selected, row.names = FALSE)
+```
+
+The team completed **`r selected$completed`** items against a target of
+**`r selected$target`**, reaching
+**`r round(100 * selected$completed / selected$target, 1)`%** of the target.
+
+## Parameters from a file
+
+The companion `08-report-params.yml` selects Support in February:
+
+```bash
+quarto render 08-parameterized-report.qmd --execute-params 08-report-params.yml --output support-feb.html
+```
+
+Use distinct output filenames to keep multiple variants. This example needs
+only the R rendering packages already used by `04-r-analysis.qmd`.

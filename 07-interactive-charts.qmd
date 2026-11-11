@@ -1,0 +1,77 @@
+---
+title: "Explore Sales Interactively"
+jupyter: python3
+format:
+  html:
+    toc: true
+    code-fold: true
+---
+
+## Create the chart
+
+This example uses fictional data and Plotly's graph objects, so pandas is not
+required. Install `jupyter` and `plotly` before rendering.
+
+```{python}
+#| label: prepare-interactive-data
+import plotly.graph_objects as go
+from IPython.display import HTML, display
+
+months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+regions = {
+    "North": [120, 135, 128, 160, 175, 190],
+    "South": [95, 110, 115, 125, 140, 155],
+}
+fig = go.Figure()
+for region, sales in regions.items():
+    fig.add_trace(go.Scatter(
+        x=months, y=sales, name=region, mode="lines+markers",
+        hovertemplate="%{x}: %{y} units<extra>%{fullData.name}</extra>",
+    ))
+
+fig.update_layout(
+    title="Fictional monthly sales by region",
+    xaxis_title="Month", yaxis_title="Units sold",
+    template="plotly_white", hovermode="x unified",
+    margin=dict(t=110),
+    updatemenus=[dict(
+        buttons=[
+            dict(label="All regions", method="update", args=[{"visible": [True, True]}]),
+            dict(label="North", method="update", args=[{"visible": [True, False]}]),
+            dict(label="South", method="update", args=[{"visible": [False, True]}]),
+        ],
+        direction="down", x=0, y=1.2,
+    )],
+)
+```
+
+```{python}
+#| label: show-interactive-chart
+# Embed Plotly locally in the HTML instead of fetching it from a CDN.
+display(HTML(fig.to_html(
+    full_html=False, include_plotlyjs=True,
+    config={"responsive": True, "displaylogo": False},
+    default_height="480px",
+)))
+```
+
+## Try the interactions
+
+- Hover over a point to see its value.
+- Use the dropdown to show one region or both.
+- Click a legend entry to hide or show that region.
+- Drag over the chart to zoom, then double-click to reset.
+
+The table provides the same values without requiring chart interaction.
+
+```{python}
+#| output: asis
+print("| Month | North | South |")
+print("|:------|------:|------:|")
+for month, north, south in zip(months, regions["North"], regions["South"]):
+    print(f"| {month} | {north} | {south} |")
+```
+
+The exported HTML includes the data and chart library and needs no Python server
+to interact with it. This example targets HTML; PDF and Word do not preserve
+these interactions.

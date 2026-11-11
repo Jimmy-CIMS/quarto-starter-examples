@@ -1,0 +1,19 @@
+---
+title: "About Field Notes"
+---
+
+This is a fictional publication and a working multi-page website example.
+Its pages do not execute Python or R.
+
+## Where things live
+
+| File | Purpose |
+|:-----|:--------|
+| `_quarto.yml` | Website configuration, navigation, search, and theme |
+| `index.qmd` | Home page |
+| `posts.qmd` | Automatically generated article listing |
+| `posts/*/index.qmd` | Individual articles with dates and categories |
+| `styles.css` | Small visual customizations |
+
+To preview a complete website, render or preview the project directory rather
+than only a single page. Search indexes the rendered pages.

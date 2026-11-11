@@ -1,0 +1,43 @@
+---
+title: "Explain a Workflow with Diagrams"
+format:
+  html:
+    toc: true
+---
+
+## A flowchart
+
+Mermaid turns text into diagrams. The executable `{mermaid}` fence below
+is handled by Quarto; it does not need Python or R.
+
+```{mermaid}
+%%| label: fig-workflow
+%%| fig-cap: "A small document review workflow."
+flowchart LR
+    A[Write a draft] --> B[Preview]
+    B --> C{Ready to share?}
+    C -->|No| A
+    C -->|Yes| D[Render HTML]
+```
+
+@fig-workflow includes a decision and a loop. Try adding a review step
+before rendering.
+
+## A sequence diagram
+
+```{mermaid}
+%%| label: fig-preview
+%%| fig-cap: "What happens during a local preview."
+sequenceDiagram
+    participant Author
+    participant Quarto
+    participant Browser
+    Author->>Quarto: quarto preview 05-diagrams.qmd
+    Quarto->>Browser: Serve rendered document
+    Author->>Quarto: Save source changes
+    Quarto->>Browser: Refresh preview
+```
+
+Use a flowchart for decisions and a sequence diagram for interactions over time.
+This example targets HTML; PDF or Word diagram rendering may require additional
+tools. See the [diagram guide](https://quarto.org/docs/authoring/diagrams.html).

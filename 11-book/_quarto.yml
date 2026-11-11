@@ -1,0 +1,18 @@
+project:
+  type: book
+
+book:
+  title: "A Small Guide to Reproducible Notes"
+  author: "Example Author"
+  chapters:
+    - index.qmd
+    - writing.qmd
+    - sharing.qmd
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+  epub:
+    toc: true

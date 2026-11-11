@@ -1,0 +1,32 @@
+# Share the book {#sec-sharing}
+
+## HTML for the browser
+
+From the repository root:
+
+```bash
+quarto render 11-book --to html
+```
+
+Share the complete `11-book/_book/` directory through a static website host.
+The HTML edition includes chapter navigation and search.
+
+## EPUB for an e-reader
+
+```bash
+quarto render 11-book --to epub
+```
+
+EPUB is a single file and does not require LaTeX.
+
+## PDF for printing
+
+Install a LaTeX distribution such as TinyTeX once, then render:
+
+```bash
+quarto install tinytex
+quarto render 11-book --to pdf
+```
+
+The outline in @tbl-outline and the chapter link to @sec-writing are resolved
+for each output format. Preview your chosen format before sharing it.

@@ -1,0 +1,24 @@
+---
+title: "Your first field note"
+description: "Turn a small observation into a useful article."
+author: "Example Author"
+date: 2026-01-10
+categories: [writing]
+---
+
+## Begin with one observation
+
+Choose a question you can answer in a few paragraphs. Add enough context for
+someone who has not seen your work, and finish with a concrete next step.
+
+::: {.callout-tip}
+## Keep the source readable
+
+Use headings, short paragraphs, and descriptive links. A useful note does not
+need custom JavaScript or an external dataset.
+:::
+
+## Publish the next note
+
+Create another folder under `posts/` with an `index.qmd` file. Give it a title,
+date, description, and categories so the article listing can organize it.

@@ -1,0 +1,30 @@
+/* A quiet editorial treatment; Quarto supplies navigation and responsive layout. */
+:root {
+  --bs-body-bg: #faf8f1;
+  --bs-body-color: #243c34;
+  --bs-link-color: #24674c;
+  --bs-link-hover-color: #174831;
+}
+
+body {
+  line-height: 1.7;
+}
+
+h1, h2, h3, .navbar-brand {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+h1 {
+  font-size: clamp(2.1rem, 5vw, 3.5rem);
+  letter-spacing: -0.035em;
+  max-width: 20ch;
+}
+
+.navbar {
+  background-color: #e9eee3;
+}
+
+a:focus-visible {
+  outline: 3px solid #96602c;
+  outline-offset: 4px;
+}

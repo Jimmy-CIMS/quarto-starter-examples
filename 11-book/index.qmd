@@ -1,0 +1,19 @@
+---
+title: "Welcome"
+---
+
+# Preface {.unnumbered}
+
+This small book demonstrates chapters, navigation, cross-references, and three
+output formats. It uses plain Markdown and does not require Python or R.
+
+Read @sec-writing for the writing workflow, then @sec-sharing to learn how
+to share the finished book. Chapter numbers and links are managed by Quarto.
+
+From the repository root, preview the HTML edition:
+
+```bash
+quarto preview 11-book --to html
+```
+
+The default project output directory is `11-book/_book/`.

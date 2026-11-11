@@ -1,0 +1,70 @@
+---
+title: "Sales at a Glance"
+jupyter: python3
+format:
+  dashboard:
+    scrolling: true
+execute:
+  echo: false
+---
+
+```{python}
+#| label: prepare-dashboard
+#| include: false
+import matplotlib.pyplot as plt
+from IPython.display import Markdown, display
+
+months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+sales = [120, 135, 128, 160, 175, 190]
+total = sum(sales)
+growth = (sales[-1] / sales[0] - 1) * 100
+```
+
+## Summary {.flow}
+
+```{python}
+#| content: valuebox
+#| title: Total units sold
+dict(value=f"{total:,}")
+```
+
+```{python}
+#| content: valuebox
+#| title: January to June growth
+dict(value=f"{growth:.1f}%")
+```
+
+```{python}
+#| content: valuebox
+#| title: Latest month
+dict(value=f"{sales[-1]:,} units")
+```
+
+## Details
+
+```{python}
+#| title: Monthly trend
+fig, ax = plt.subplots(figsize=(8, 4))
+ax.plot(months, sales, marker="o", color="#23745b", linewidth=2)
+ax.set(xlabel="Month", ylabel="Units sold")
+ax.grid(axis="y", alpha=0.25)
+fig.tight_layout()
+plt.show()
+```
+
+```{python}
+#| title: Underlying values
+rows = "\n".join(f"| {month} | {value} |" for month, value in zip(months, sales))
+display(Markdown("| Month | Units sold |\n|:------|-----------:|\n" + rows))
+```
+
+## Notes {.flow}
+
+::: {.card title="Read this dashboard"}
+All values are fictional. Growth compares June with January; the total covers
+all six months. KPI cards, the chart, and the table use the same Python data.
+
+Edit the `sales` list and render again to update every view. Level-two headings
+define rows, and cells within each row become cards. `scrolling: true` allows
+the page to grow with its content. No application server is needed after rendering.
+:::

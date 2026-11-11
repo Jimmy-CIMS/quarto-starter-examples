@@ -1,0 +1,26 @@
+# Write a useful note {#sec-writing}
+
+## Pick one question
+
+A short, focused document is easier to review and update. Begin with a question,
+describe your inputs, and explain what the reader should learn.
+
+## Keep a consistent structure
+
+| Part | Reader's question |
+|:-----|:------------------|
+| Context | Why should I care? |
+| Method | What did you do? |
+| Result | What did you find? |
+| Next step | What can I try? |
+
+: A reusable outline for a short note. {#tbl-outline}
+
+@tbl-outline is a starting point. Adapt it to your audience.
+
+::: {.callout-tip}
+## One chapter per file
+
+Add each chapter to the `book.chapters` list in `_quarto.yml`. The list determines
+the reading order across HTML, PDF, and EPUB.
+:::

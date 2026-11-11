@@ -1,10 +1,13 @@
-/.quarto/
-/.jupyter_cache/
-/.ipynb_checkpoints/
-/*_files/
-/*.html
-/*.pdf
-/*.docx
+.quarto/
+.jupyter_cache/
+.ipynb_checkpoints/
+*_files/
+*.html
+*.pdf
+*.docx
+*.epub
+_site/
+_book/
 
 # Local environments and credentials
 /.venv/

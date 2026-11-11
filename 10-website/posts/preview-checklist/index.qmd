@@ -1,0 +1,25 @@
+---
+title: "Before you share"
+description: "A short checklist for a readable static website."
+author: "Example Author"
+date: 2026-01-17
+categories: [publishing]
+---
+
+## Check the reading experience
+
+- Follow every navigation link.
+- Search for a phrase from an article.
+- Read the page at a narrow window width.
+- Check headings and links using the keyboard.
+
+## Render the complete project
+
+From the repository root, run:
+
+```bash
+quarto render 10-website
+```
+
+Publish the complete `_site` folder. Keeping just `index.html` omits the other
+pages, search index, styles, and scripts.

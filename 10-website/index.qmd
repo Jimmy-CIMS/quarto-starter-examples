@@ -1,0 +1,21 @@
+---
+title: "Small observations, shared clearly."
+---
+
+A starter notebook for ideas, short tutorials, and lessons from everyday work.
+This site demonstrates navigation, search, article listings, and a small custom
+stylesheet using only Quarto.
+
+## Start reading
+
+[Browse the notes](posts.qmd) or learn [about this project](about.qmd).
+
+## Make it yours
+
+1. Change the title and navigation in `_quarto.yml`.
+2. Edit the pages in this directory.
+3. Add a `.qmd` article under `posts/`; it will appear on the Notes page.
+4. Run `quarto preview 10-website` from the repository root.
+
+The finished site is written to `10-website/_site/`. Share the complete folder
+through any static website host so navigation, search, and assets stay together.

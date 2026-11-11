@@ -1,0 +1,13 @@
+---
+title: "Notes"
+listing:
+  contents: posts
+  type: default
+  sort: "date desc"
+  categories: true
+  sort-ui: true
+  filter-ui: true
+---
+
+Short guides to writing and publishing with Quarto. Use the category and search
+controls below to explore the listing.
