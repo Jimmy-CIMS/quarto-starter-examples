@@ -1,0 +1,50 @@
+---
+title: "Hello, Quarto"
+subtitle: "A small guide to document basics"
+format:
+  html:
+    toc: true
+    number-sections: true
+---
+
+# Write with Markdown
+
+Quarto combines **formatted text**, tables, equations, and code in one document.
+Edit this file, then run `quarto preview 01-basics.qmd` to see your changes.
+
+## A simple list
+
+1. Write your content in a `.qmd` file.
+2. Preview it while you work.
+3. Render a finished document to share.
+
+## A table
+
+| Format | Good for |
+|:-------|:---------|
+| HTML | Reading in a browser |
+| PDF | Printing and fixed layouts |
+| Word | Sharing editable documents |
+
+# Add an equation
+
+The mean of a set of observations is:
+
+$$
+\bar{x} = \frac{1}{n}\sum_{i=1}^{n}x_i
+$$
+
+# Highlight an idea
+
+::: {.callout-tip}
+## Start small
+
+This document has no executable code, so it only needs Quarto to render to HTML.
+:::
+
+An ordinary code fence displays code without running it:
+
+```python
+message = "Hello, Quarto!"
+print(message)
+```

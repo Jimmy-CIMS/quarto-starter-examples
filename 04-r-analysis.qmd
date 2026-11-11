@@ -1,0 +1,60 @@
+---
+title: "Explore the Iris Dataset"
+subtitle: "A report using R and its built-in data"
+engine: knitr
+format:
+  html:
+    toc: true
+execute:
+  echo: true
+---
+
+## Inspect the data
+
+The built-in `iris` dataset contains flower measurements for three species.
+This report uses base R, so no additional data or plotting packages are needed.
+
+```{r}
+#| label: inspect-data
+head(iris)
+```
+
+## Summarize petal length
+
+Calculate the mean petal length in centimeters for each species.
+
+```{r}
+#| label: summarize-species
+aggregate(Petal.Length ~ Species, data = iris, FUN = mean)
+```
+
+## Compare measurements
+
+```{r}
+#| label: fig-iris
+#| fig-cap: "Petal dimensions for the three iris species."
+#| fig-width: 7
+#| fig-height: 4
+species_colors <- c("#2563eb", "#d97706", "#059669")
+plot(
+  iris$Petal.Length,
+  iris$Petal.Width,
+  col = species_colors[as.integer(iris$Species)],
+  pch = 19,
+  xlab = "Petal length (cm)",
+  ylab = "Petal width (cm)"
+)
+legend(
+  "topleft",
+  legend = levels(iris$Species),
+  col = species_colors,
+  pch = 19,
+  bty = "n"
+)
+```
+
+## What to look for
+
+@fig-iris shows how petal length and width vary across species.
+Try changing `Petal.Length` and `Petal.Width` to `Sepal.Length` and
+`Sepal.Width`, and update the labels to match.

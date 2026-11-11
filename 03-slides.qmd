@@ -1,0 +1,55 @@
+---
+title: "Meet Quarto"
+subtitle: "A short presentation"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    transition: fade
+---
+
+## One source, many outputs
+
+- Write with Markdown.
+- Include code and its results.
+- Publish documents, reports, and presentations.
+
+::: {.notes}
+Press S while presenting to open the speaker view. These notes are visible
+to the presenter, rather than on the audience slide.
+:::
+
+## The workflow
+
+::: {.incremental}
+- Create a `.qmd` file.
+- Add a YAML header to choose the output format.
+- Preview, revise, and render.
+:::
+
+## Text and code, side by side
+
+:::: {.columns}
+::: {.column width="50%"}
+### Explain the idea
+
+Code fences make examples easy to read. This example displays code without
+executing it.
+:::
+
+::: {.column width="50%"}
+```python
+values = [10, 20, 30]
+average = sum(values) / len(values)
+print(average)
+```
+:::
+::::
+
+## Try it yourself
+
+```bash
+quarto preview 03-slides.qmd
+```
+
+Use the arrow keys to move between slides.

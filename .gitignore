@@ -1,0 +1,24 @@
+/.quarto/
+/.jupyter_cache/
+/.ipynb_checkpoints/
+/*_files/
+/*.html
+/*.pdf
+/*.docx
+
+# Local environments and credentials
+/.venv/
+/venv/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+/.agents/
+/.aws/
+/.codex/
+
+# Editor and operating system files
+.DS_Store
+Thumbs.db
+*.swp

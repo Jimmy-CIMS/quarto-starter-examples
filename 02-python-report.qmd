@@ -1,0 +1,62 @@
+---
+title: "A Tiny Sales Report"
+subtitle: "Executable Python, tables, and a chart"
+jupyter: python3
+format:
+  html:
+    toc: true
+    code-fold: true
+execute:
+  echo: true
+---
+
+## The question
+
+How did sales change over the first six months of the year?
+This example uses fictional data stored directly in the document.
+
+## Prepare the data
+
+```{python}
+#| label: prepare-data
+months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+sales = [120, 135, 128, 160, 175, 190]
+growth = (sales[-1] / sales[0] - 1) * 100
+print(f"Total sales: {sum(sales):,} units")
+print(f"Change from January to June: {growth:.1f}%")
+```
+
+## Monthly values
+
+The following cell generates a Markdown table from the data.
+
+```{python}
+#| label: tbl-sales
+#| tbl-cap: "Fictional monthly sales"
+#| output: asis
+print("| Month | Units sold |")
+print("|:------|-----------:|")
+for month, units in zip(months, sales):
+    print(f"| {month} | {units} |")
+```
+
+## Visualize the trend
+
+```{python}
+#| label: fig-sales
+#| fig-cap: "Sales rise overall, with a small dip in March."
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(7, 4))
+ax.plot(months, sales, marker="o", color="#2563eb", linewidth=2)
+ax.set(xlabel="Month", ylabel="Units sold", title="Monthly sales")
+ax.grid(axis="y", alpha=0.25)
+fig.tight_layout()
+plt.show()
+```
+
+## Interpretation
+
+@fig-sales shows an upward trend overall. @tbl-sales provides the underlying
+values. Change the `sales` list and render again to update the calculations,
+table, and chart together.
